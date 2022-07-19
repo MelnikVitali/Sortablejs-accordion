@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {  ReactSortable, Sortable } from "react-sortablejs";
+import { ReactSortable } from 'react-sortablejs';
 import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
@@ -9,7 +9,7 @@ import { Box } from '@mui/material';
 import { FC } from 'react';
 
 
-interface ICard{
+interface ICard {
     id: string;
     heading: string;
     secondaryHeading: string;
@@ -70,42 +70,42 @@ const ControlledAccordions: FC = () => {
                 swap
                 // multiDrag
             >
-            {card.map(accordion => {
-                const {id, heading, secondaryHeading, details} = accordion;
-                return (
-                    <Accordion
-                        expanded={expanded === id}
-                        key={id}
-                        onChange={handleChange(id)}
-                        sx={{margin:1}}
-                    >
-                        <AccordionSummary
-                            expandIcon={<ExpandMoreIcon/>}
-                            aria-controls="panel1bh-content"
-                            id="panel1bh-header"
+                {card.map(accordion => {
+                    const {id, heading, secondaryHeading, details} = accordion;
+                    return (
+                        <Accordion
+                            expanded={expanded === id}
+                            key={id}
+                            onChange={handleChange(id)}
+                            sx={{margin: 1}}
                         >
-                            <Typography
-                                sx={{
-                                    fontSize: 15,
-                                    flexBasis: '33.33%',
-                                    flexShrink: 0
-                                }}>
-                                {heading}
-                            </Typography>
-                            <Typography
-                                sx={{
-                                fontSize: 15,
-                            }}
-                            color='secondary'>
-                                {secondaryHeading}
-                            </Typography>
-                        </AccordionSummary>
-                        <AccordionDetails>
-                            <Typography>{details}</Typography>
-                        </AccordionDetails>
-                    </Accordion>
-                );
-            })}
+                            <AccordionSummary
+                                expandIcon={<ExpandMoreIcon/>}
+                                aria-controls="panel1bh-content"
+                                id="panel1bh-header"
+                            >
+                                <Typography
+                                    sx={{
+                                        fontSize: 15,
+                                        flexBasis: '33.33%',
+                                        flexShrink: 0
+                                    }}>
+                                    {heading}
+                                </Typography>
+                                <Typography
+                                    sx={{
+                                        fontSize: 15,
+                                    }}
+                                    color="secondary">
+                                    {secondaryHeading}
+                                </Typography>
+                            </AccordionSummary>
+                            <AccordionDetails>
+                                <Typography>{details}</Typography>
+                            </AccordionDetails>
+                        </Accordion>
+                    );
+                })}
 
                 {/*<div style={{maxWidth:920}}>{JSON.stringify(card)}</div>*/}
             </ReactSortable>
@@ -113,7 +113,7 @@ const ControlledAccordions: FC = () => {
                 readOnly={true}
                 rows={80}
                 cols={80}
-                style={{margin:'0 auto'}}
+                style={{margin: '0 auto'}}
                 value={JSON.stringify(card, null, 4)}
             />
         </Box>
